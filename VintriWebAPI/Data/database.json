@@ -1,0 +1,38 @@
+[
+  {
+    "beerId": 5,
+    "userName": "vani@gmail.com",
+    "rating": 5,
+    "comments": "Excellent"
+  },
+  {
+    "beerId": 5,
+    "userName": "vani@gmail.com",
+    "rating": 5,
+    "comments": "Excellent"
+  },
+  {
+    "beerId": 5,
+    "userName": "vani@gmail.com",
+    "rating": 5,
+    "comments": "Excellent"
+  },
+  {
+    "beerId": 5,
+    "userName": "vani@gmail.com",
+    "rating": 5,
+    "comments": "Excellent"
+  },
+  {
+    "beerId": 5,
+    "userName": "vani@gmail.com",
+    "rating": 5,
+    "comments": "Excellent"
+  },
+  {
+    "beerId": 1,
+    "userName": "vani@gmail.com",
+    "rating": 5,
+    "comments": "Excellent"
+  }
+]

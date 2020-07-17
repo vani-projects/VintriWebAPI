@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PunkClient</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+</head>
+<body style="margin-top:50px;margin-left:50px">
+
+    <h4>Select Beer</h4>
+    <select id="ddlBeers" class="form-control col-2"></select>
+    <p>
+        <div id="divBeerDetails"></div>
+    </p>
+
+    <script>
+        $(document).ready(function () {
+            //alert('doc ready');
+            $.getJSON("https://api.punkapi.com/v2//api/Beer", { format: "json" })
+                .done(function (data) {
+                    $.each(data, function (index, beer) {
+                        $("#ddlBeers").append('<option value=' + beer.id + '>' + beer.username + '  ' + beer.rating + '</option>')
+                    });
+                });
+
+            //display the details of a selected beer
+            //capture change of the select
+            $("#ddlBeers").change(function () {
+                var id = $("#ddlBeers").val();
+                //display the details of selected beer
+                $.ajax({
+                    url: 'https://api.punkapi.com/v2/api/Beer/' + id,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#divBeerDetails").html("User Name: " + data["username"]);
+                        $("#divBeerDetails").append("<br/> Rating: " + data["rating"]);
+                        $("#divBeerDetails").append("<br/> Comment: " + data["comment"]);
+                    },
+                    error: function () { alert("An error occured!");}
+                });
+            });
+           
+
+        });
+    </script>
+
+</body>
+</html>
